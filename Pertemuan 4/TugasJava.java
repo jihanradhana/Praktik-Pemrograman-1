@@ -12,7 +12,7 @@ public class TugasJava {
 
         System.out.println("Assalamu'alaikum warahmatullahi wabarokatuh"); //pembuka
         System.out.print("Pada tugas kali ini, saya akan membuat suatu program yang bisa membaca dua input nilai, "); 
-        System.out.println("dan juga menampilkan hasil dari penjumlahan, pengurangan, perkalian, pembagian dan modulus dari kedua bilangan tersebut.");
+        System.out.println("dan juga menampilkan hasil dari penjumlahan, pengurangan, perkalian, pembagian serta modulus dari kedua bilangan tersebut.");
         System.out.println();
         System.out.println("Berikut adalah hasil operasi dari dua bilangan yang telah dimasukkan.");
 
