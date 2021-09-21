@@ -4,6 +4,7 @@ angkatan = 2021
 programStudi = "Teknologi Informasi"
 jurusan = "Jurusan Pendidikan Teknik Elektronika dan Informatika (JPTEI)"
 fakultas = "Fakultas Teknik Universitas Negeri Yogyakarta"
+harapanIPK = "3.5"
 
 
 print("Pada tugas kali ini, saya akan memperkenalkan diri saya.")
@@ -14,4 +15,5 @@ print("Tahun Angkatan        : " + str(angkatan))
 print("Program Studi         : " + programStudi)
 print("Jurusan               : " + jurusan)
 print("Fakultas              : " + fakultas)
+print("IPK harapan           : " + harapanIPK )
 print("Sekian dari saya, mohon maaf jika ada kesalahan, terima kasih.")
