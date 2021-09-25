@@ -1,19 +1,19 @@
+//Tugas Pertemuan Ke-Empat Praktik Pemrograman 1
 import java.util.Scanner;
 
 public class TugasJava {
     public static void main(String[] args) {
-        System.out.println("Assalamu'alaikum warahmatullahi wabarokatuh"); //pembuka
-        System.out.print("Pada tugas kali ini, saya akan membuat suatu Program Java yang bisa membaca dua input nilai, "); 
+        
+        System.out.print("Program Java ini bisa membaca dua input nilai, "); //pembuka
         System.out.println("dan juga menampilkan hasil dari penjumlahan, pengurangan, perkalian, pembagian, serta modulus dari kedua bilangan tersebut.");
-        System.out.println("Berikut adalah hasil dari tugas saya.");
         System.out.println();
     
             Scanner j = new Scanner(System.in);
             
-            System.out.print("Masukkan nilai dari x : "); 
+            System.out.print("Silahkan masukkan nilai x : "); 
             double x = j.nextDouble();
 
-            System.out.print("Masukkan nilai dari y : ");
+            System.out.print("Silahkan masukkan nilai y : ");
             double y = j.nextDouble();
 
                 double hasilTambah = x + y; //pertambahan
@@ -29,10 +29,7 @@ public class TugasJava {
                 System.out.println("Pembagian dari nilai x dan y akan menghasilkan nilai sebesar " + hasilBagi);
 
                 double hasilModulus = x % y; //modulus
-                System.out.println("Modulus dari x dan y adalah " +hasilModulus);
+                System.out.println("Modulus dari x dan y adalah " + hasilModulus);
 
-        System.out.println(); //penutup
-        System.out.println("Sekian untuk tugas saya kali ini, mohon maaf jika ada kesalahan, terima kasih.");
-        System.out.println("Wassalamu'alaikum warahmatullahi wabarokatuh");
     }
 }
