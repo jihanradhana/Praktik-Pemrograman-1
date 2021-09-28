@@ -33,7 +33,8 @@ import java.util.Scanner;
                         System.out.println("Mohon maaf, anda dinyatakan tidak lulus.");
                     }
                     else {
-                        System.out.println("Nilai IPK yang anda masukkan tidak valid. Silahkan mencoba kembali.");
+                        System.out.print("Nilai IPK yang anda masukkan tidak valid. Silahkan mencoba kembali ");
+                        System.out.println("dan pastikan nilai yang anda berikan sesuai format.");
                     }
             scanner.close();
         }
