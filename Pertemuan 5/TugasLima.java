@@ -30,7 +30,8 @@ import java.util.Scanner;
                         System.out.println("Selamat! Anda berhasil lulus dengan predikat cukup.");
                     }
                     else if (ipk < 2.00){
-                        System.out.println("Mohon maaf, anda dinyatakan tidak lulus.");
+                        System.out.print("Mohon maaf, anda dinyatakan tidak lulus, silahkan mencoba pada tahun berikutnya. ");
+                        System.out.println("Jangan putus asa dan tetap semangat!");
                     }
                     else {
                         System.out.print("Nilai IPK yang anda masukkan tidak valid. Silahkan mencoba kembali ");
