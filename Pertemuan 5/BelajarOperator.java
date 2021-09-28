@@ -19,6 +19,6 @@ public class BelajarOperator {
         System.out.println("hasil A < 5 && B > 2 = " + hasil);
         System.out.println("hasil A < 5 || B > 2 = " + hasil);
         System.out.println("hasil !(A < 5 && B > 2)" + hasil);
-        
+        scanner.close();
     }
 }
