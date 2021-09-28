@@ -6,7 +6,7 @@ y = input ("Silahkan masukkan nilai dari variabel y yang ingin dioperasikan : ")
 z = input ("SIlahkan masukkan nilai dari variabel x yang ingin dioperasikan : ")
 
 
-hasilTambah = y + z #pertambahan
+hasilTambah = (int(y) + int(z)) #pertambahan
 print("Pertambahan dari x dan y akan menghasilkan nilai sebesar " + str(hasilTambah)) 
 
 hasilKurang = (int(y) - int (z)) #pengurangan
