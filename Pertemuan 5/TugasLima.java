@@ -26,7 +26,7 @@ import java.util.Scanner;
                     System.out.println("Nama                       : " + namaLengkap);
                     System.out.println("Nomor Induk Mahasiswa      : " + nim);
                     System.out.println("IPK                        : " + ipk);
-                    System.out.println("Lama belajar (dalam tahun ): ");
+                    System.out.println("Lama belajar (dalam tahun) : " + lamaStudi);
 
                         if (ipk >= 3.51 && ipk <= 4.00 && lamaStudi <= 4) {
                             System.out.println("Selamat! Anda berhasil lulus dengan predikat Pujian Tertinggi (Summa Cumlaude).");
