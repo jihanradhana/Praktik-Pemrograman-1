@@ -1,24 +1,27 @@
-print("Silahkan masukkan IPK Anda di bawah dengan format dua angka di belakang koma (contoh : 3.71)", end=" ")
+print("Silahkan masukkan nama, NIM, IPK ", end=" ")
+print("(dengan format dua angka di belakang koma, contoh : 3.71)", end=" ")
 print("dan waktu lama anda menempuh pembelajaran untuk melihat predikat yang berhasil anda capai.")
 
-namaLengkap = input("Nama Lengkap          : ")
+namaLengkap = input("Nama Lengkap              : ")
 
-nim = input("Nomor Induk Mahasiswa : ")
+nim = input("Nomor Induk Mahasiswa     : ")
 
-ipk = input("IPK                   : ")
+ipk = input("IPK                       : ")
 ipk = float(ipk)
 
-lamaStudi = input("Lama belajar          : ")
+lamaStudi = input("Lama belajar (dalam tahun): ")
 lamaStudi = float(lamaStudi)
 
-print("HASIL CAPAIAN PREDIKAT LULUSAN S1 TAHUN 2021")
-print("Nama                : " + namaLengkap)
-print("NIM                 : " + nim)
+print("PENGUMUMAN HASIL CAPAIAN PREDIKAT LULUSAN S1 TAHUN 2025")
+print("Nama                       : " + namaLengkap)
+print("NIM                        : " + nim)
+print("IPK                        : " + str(ipk))
+print("Lama belajar (dalam tahun) : " + str(lamaStudi))
 
-if (ipk >= 3.51 and lamaStudi <= 4):
+if (ipk >= 3.51 and ipk <= 4.00 and lamaStudi <= 4):
     print("Selamat! Anda berhasil lulus dengan predikat Pujian Tertinggi (Summa Cumlaude).")
 
-elif (ipk >= 3.51):
+elif (ipk >= 3.51 and ipk <= 4.00):
     print("Selamat! Anda berhasil lulus dengan predikat pujian (Cumlaude).")
 
 elif (ipk >= 3.01 and ipk < 3.51):
