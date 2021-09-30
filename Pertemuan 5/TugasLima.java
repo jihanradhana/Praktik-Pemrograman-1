@@ -5,23 +5,35 @@ import java.util.Scanner;
         public static void main(String[] args) {
 
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Silahkan masukkan IPK Anda di bawah dengan format dua angka di belakang koma (contoh : 3.71) ");
-            System.out.println("dan waktu lama anda menempuh pembelajaran untuk melihat predikat yang berhasil anda capai.");
+            System.out.print("Silahkan masukkan nama lengkap, nim, nilai IPK");
+            System.out.print("(dengan format dua angka di belakang koma, contoh : 3.71)");
+            System.out.println("dan periode Anda menempuh pembelajaran S1 untuk melihat predikat yang berhasil anda raih.");
 
-                System.out.println("Nilai IPK : ");
+                System.out.println("Nama Lengkap               : ");
+                String namaLengkap = scanner.nextLine();
+
+                System.out.println("Nomor Induk Mahasiswa      : ");
+                String nim = scanner.nextLine();
+
+                System.out.println("Nilai IPK                  : ");
                 double ipk = scanner.nextDouble();
 
                 System.out.println("Lama belajar (dalam tahun) : " );
                 int lamaStudi = scanner.nextInt();
 
+                System.out.println();
+                System.out.println("HASIL CAPAIAN PREDIKAT LULUSAN S1 TAHUN 2021");
+                System.out.println("Nama                  : " + namaLengkap);
+                System.out.println("Nomor Induk Mahasiswa : " + nim);
+
                     if (ipk >= 3.51 && lamaStudi <= 4) {
-                        System.out.println("Selamat! Anda berhasil lulus dengan predikat Pujian Tertinggi (Summa Cumlaude)");
+                        System.out.println("Selamat! Anda berhasil lulus dengan predikat Pujian Tertinggi (Summa Cumlaude).");
                     }
-                    else if (ipk <= 3.51){
-                        System.out.println("Selamat! Anda berhasil lulus dengan predikat pujian (Cumlaude)");
+                    else if (ipk >= 3.51){
+                        System.out.println("Selamat! Anda berhasil lulus dengan predikat pujian (Cumlaude).");
                     }
                     else if (ipk >= 3.01 && ipk < 3.51){
-                        System.out.println("Selamat! Anda berhasil lulus dengan predikat sangat memuaskan");
+                        System.out.println("Selamat! Anda berhasil lulus dengan predikat sangat memuaskan.");
                     }
                     else if (ipk >= 2.76 && ipk < 3.01){
                         System.out.println("Selamat! Anda berhasil lulus dengan predikat memuaskan.");
@@ -30,7 +42,7 @@ import java.util.Scanner;
                         System.out.println("Selamat! Anda berhasil lulus dengan predikat cukup.");
                     }
                     else if (ipk < 2.00){
-                        System.out.print("Mohon maaf, anda dinyatakan tidak lulus, silahkan mencoba pada tahun berikutnya. ");
+                        System.out.print("Mohon maaf, anda dinyatakan tidak lulus, silahkan mengulang kembali pada periode berikutnya. ");
                         System.out.println("Jangan putus asa dan tetap semangat!");
                     }
                     else {
