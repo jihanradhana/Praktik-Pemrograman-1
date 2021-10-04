@@ -30,24 +30,18 @@ import java.util.Scanner;
 
                         if (ipk >= 3.51 && ipk <= 4.00 && lamaStudi <= 4) {
                             System.out.println("Selamat! Anda berhasil lulus dengan predikat Pujian Tertinggi (Summa Cumlaude).");
-                        }
-                        else if (ipk >= 3.51 && ipk <= 4.00){
+                        }else if (ipk >= 3.51 && ipk <= 4.00) {
                             System.out.println("Selamat! Anda berhasil lulus dengan predikat Pujian (Cumlaude).");
-                        }
-                        else if (ipk >= 3.01 && ipk < 3.51){
+                        }else if (ipk >= 3.01 && ipk < 3.51) {
                             System.out.println("Selamat! Anda berhasil lulus dengan predikat Sangat Memuaskan.");
-                        }
-                        else if (ipk >= 2.76 && ipk < 3.01){
+                        }else if (ipk >= 2.76 && ipk < 3.01) {
                             System.out.println("Selamat! Anda berhasil lulus dengan predikat Memuaskan.");
-                        }
-                        else if (ipk >= 2.00 && ipk < 2.76){
+                        }else if (ipk >= 2.00 && ipk < 2.76) {
                             System.out.println("Selamat! Anda berhasil lulus dengan predikat Cukup.");
-                        }
-                        else if (ipk < 2.00){
+                        }else if (ipk < 2.00) {
                             System.out.print("Mohon maaf, anda dinyatakan tidak lulus, silahkan mengulang kembali pada periode berikutnya. ");
                             System.out.println("Jangan putus asa dan tetap semangat!");
-                        }
-                        else {
+                        }else {
                             System.out.print("Nilai IPK yang anda masukkan tidak valid. Silahkan mencoba kembali ");
                             System.out.println("dan pastikan nilai yang anda berikan sesuai format.");
                         }
