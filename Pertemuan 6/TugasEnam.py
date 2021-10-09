@@ -7,4 +7,3 @@ while (i != int(n)):
         print(i)
         num += 1
     i += 1
-    
