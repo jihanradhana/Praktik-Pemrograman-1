@@ -7,11 +7,11 @@ import java.util.Scanner;
 
             if (n % 2 == 0){
                 for (int i = (n/2)+1; i>1; i--){
-                    for (int j = n; j >i-1; j--){
+                    for (int j = n-2; j>i-1; j--){
                         System.out.print(" ");
                     }
                     for (int k = 0; k <= (i*2)-2; k++){
-                        if ( k== i-1){
+                        if ( k == i-1){
                             System.out.print("-");
                         } else {
                             System.out.print("*");
@@ -19,8 +19,8 @@ import java.util.Scanner;
                     }
                 System.out.println();
                 }
-                for (int i=1;i <=(n/2)+1; i++){
-                    for (int j=i;j<=n; j++){
+                for (int i=1;i <= (n/2)+1; i++){
+                    for (int j=i; j<=n-2; j++){
                         System.out.print(" ");
                     }
                     for (int k=0; k<= (i*2)-2; k++){
@@ -34,25 +34,28 @@ import java.util.Scanner;
                 }
 
             } else {
-                for (int i = (n/2)+1; i >1; i--){
-                    for (int j = n; j>i-1;j--){
-                        System.out.print(" ");
-                    }
-                    for (int k = 0; k <= (i*2)-2; k++){
-                        System.out.print("*");
-                    }
-                System.out.println();
-            }
-
-                for (int i = 1; i<= (n/2) + 1; i++){
-                    for(int j = i; j<= n; j++){
-                        System.out.print(" ");
-                    }
-                    for (int k =0; k <= (i*2)-2; k++){
+                for (int i = 1; i <= n; i++){
+                    if (i%2==1){
+                        for (int j=1; j<(i/2) + 1; j++){
+                            System.out.print(" ");
+                        }
+                        for (int k = i; k <=n; k++){
                             System.out.print("*");
+                        }
+                        System.out.println();
                     }
-                System.out.println();
-            }
+                }
+                for (int i = n-1; i>= 1; i--){
+                    if (i%2==1){
+                        for (int j = 1; j <(i/2) + 1; j++){
+                            System.out.print(" ");
+                        }
+                        for (int k =i; k<=n; k++){
+                            System.out.print("*");
+                        }
+                    System.out.println();
+                    }
+                }
         }
     }
 }
