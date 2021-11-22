@@ -10,28 +10,29 @@ Bahasa = Java
 
 import java.util.Scanner; 
     public class Siakad {
-        private String[] nama = new String [1000];
-        private String[] nim = new String [1000];
-        private double[] ipk = new double [1000];
+        Mahasiswa[] mahasiswa = new Mahasiswa[1000];
         private int jumlahData = 0;
 
         public static void main(String[] args) {
+
             System.out.println();
             Siakad siakad = new Siakad();
             int menu = 0; // deklarasi menu
             while (menu!=5) { //nampilin menu
-                menu = tampilanMenu(); 
+                menu = displayMenu(); 
                 if (menu == 1) { // lihat data
                     siakad.lihatData();
                 } else if (menu == 2) {
                     siakad.tambahData();
                 } else if (menu == 3 ) {
                     siakad.ratarataIpk();
+                } else if (menu == 4) {
+                    siakad.ratarataIpk();
                 }
             }
         }
 
-        private static int tampilanMenu() {
+        private static int displayMenu() {
             System.out.println();
             System.out.println("Selamat datang di Sistem Informasi Akademik Universitas Negeri Yogyakarta");
             System.out.println("Menu : ");
@@ -52,14 +53,9 @@ import java.util.Scanner;
                 System.out.println("Data belum ter-input");
             } else {
                 System.out.println();
+                System.out.println("Data mahasiswa : ");
                 for (int i = 1; i < jumlahData; i++) {
-                    System.out.println("Data mahasiswa " + i);
-                    System.out.println("Nomor Induk Mahasiswa = " + nim[i]);
-                    System.out.println("Nama Lengkap Mahasiswa = " + nama[i]);
-                    System.out.println("IPK Mahasiswa = " + ipk[i]);
-                    System.out.println();
-                    ratarataIpk();
-                    System.out.println();
+                   mahasiswa[i].getDetail();
                 }
             }
         }
@@ -67,20 +63,30 @@ import java.util.Scanner;
         private void tambahData() {
             Scanner tambah = new Scanner (System.in);
             System.out.println();
+
             System.out.print("Masukkan 11 digit NIM = ");
-            nim[jumlahData] = tambah.nextLine();
+            String nim = tambah.nextLine();
+
             System.out.print("Masukkan nama lengkap mahasiswa = ");
-            nama[jumlahData] = tambah.nextLine();
+            String namaLengkap = tambah.nextLine();
+
             System.out.print("Masukkan IPK mahasiswa dengan format dua angka dibelakang koma (contoh = 3.76) = ");
-            ipk[jumlahData] = tambah.nextDouble();
+            double ipk  = tambah.nextDouble();
+
+            System.out.print("Masukkan berat badan mahasiswa = ");
+            double weight = tambah.nextDouble();
+            Mahasiswa inputMahasiswa = new Mahasiswa (nim, namaLengkap, ipk);
+            inputMahasiswa.setweight(weight);
+
+            mahasiswa[jumlahData] = inputMahasiswa;
             jumlahData++; // ngasih tau jumlah data naik terus
             lihatData();
         }
         
         public void ratarataIpk() {
             double totalIpk = 0.0;
-            for (int i =0; i < jumlahData; i ++) {
-                totalIpk += ipk[i];
+            for (int i = 0; i < jumlahData; i++) {
+                totalIpk += mahasiswa[i].getgpa();
             }
             double ratarata = totalIpk / jumlahData;
 
