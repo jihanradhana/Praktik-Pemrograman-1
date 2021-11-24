@@ -54,38 +54,44 @@ import java.util.Scanner;
             } else {
                 System.out.println();
                 System.out.println("Data mahasiswa : ");
-                for (int i = 1; i < jumlahData; i++) {
+                for (int i = 0; i < jumlahData; i++) {
                    mahasiswa[i].getDetail();
                 }
+                System.out.println();
+                ratarataIpk();
             }
         }
 
         private void tambahData() {
-            Scanner tambah = new Scanner (System.in);
+            Scanner tambah = new Scanner(System.in);
             System.out.println();
 
-            System.out.print("Masukkan 11 digit NIM = ");
-            String nim = tambah.nextLine();
+            System.out.print("Masukkan 11 digit NIM                  : ");
+            String studID = tambah.nextLine();
 
-            System.out.print("Masukkan nama lengkap mahasiswa = ");
-            String namaLengkap = tambah.nextLine();
+            System.out.print("Masukkan nama lengkap Mahasiswa        : ");
+            String fullName = tambah.nextLine();
 
-            System.out.print("Masukkan IPK mahasiswa dengan format dua angka dibelakang koma (contoh = 3.76) = ");
-            double ipk  = tambah.nextDouble();
+            System.out.print("Masukkan semester Mahasiswa            : ");
+            int studSems = tambah.nextInt();
 
-            System.out.print("Masukkan berat badan mahasiswa = ");
+            System.out.print("Masukkan IPK Mahasiswa (contoh = 3.76) : ");
+            double gpa  = tambah.nextDouble();
+
+            System.out.print("Masukkan berat badan Mahasiswa         : ");
             double weight = tambah.nextDouble();
-            Mahasiswa inputMahasiswa = new Mahasiswa (nim, namaLengkap, ipk);
-            inputMahasiswa.setweight(weight);
 
+            Mahasiswa inputMahasiswa = new Mahasiswa (studID, fullName, studSems, gpa);
+            inputMahasiswa.setweight(weight);
             mahasiswa[jumlahData] = inputMahasiswa;
+
             jumlahData++; // ngasih tau jumlah data naik terus
             lihatData();
         }
 
         public void cariData() {
             Scanner scan = new Scanner(System.in);
-            System.out.println("Masukkan NIM yang ingin dicari = ");
+            System.out.println("Masukkan NIM yang ingin dicari =  ");
             String nim = scan.nextLine();
         }
         
@@ -96,7 +102,7 @@ import java.util.Scanner;
             }
             double ratarata = totalIpk / jumlahData;
 
-            System.out.println("Rata-rata IPK dari Mahasiswa tersebut adalah :" + ratarata);
+            System.out.println("Rata-rata IPK dari Mahasiswa tersebut adalah : " + ratarata);
         }
     }
 
