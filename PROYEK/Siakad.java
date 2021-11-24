@@ -82,6 +82,12 @@ import java.util.Scanner;
             jumlahData++; // ngasih tau jumlah data naik terus
             lihatData();
         }
+
+        public void cariData() {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Masukkan NIM yang ingin dicari = ");
+            String nim = scan.nextLine();
+        }
         
         public void ratarataIpk() {
             double totalIpk = 0.0;
