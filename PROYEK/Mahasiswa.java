@@ -1,4 +1,4 @@
-public class Mahasiswa extends Human{
+public class Mahasiswa extends Family{
     private String studID;
     private String fullName;
     private double gpa;
@@ -40,6 +40,6 @@ public class Mahasiswa extends Human{
     }
 
     public void getDetail() {
-        System.out.print(this.studID + " " + this.fullName + " " + this.gpa + " " + this.weight);    
+        System.out.println(this.studID + " " + this.fullName + " " + this.gpa + " " + this.studSems + " " + this.fathersName);    
     }
 }
