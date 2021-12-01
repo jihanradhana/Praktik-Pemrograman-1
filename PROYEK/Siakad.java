@@ -8,7 +8,8 @@ Bahasa = Java
 */
 
 
-import java.util.Scanner; 
+import java.util.Scanner;
+
     public class Siakad {
         Mahasiswa[] mahasiswa = new Mahasiswa[1000];
         private int jumlahData = 0;
@@ -27,8 +28,14 @@ import java.util.Scanner;
                 } else if (menu == 3 ) {
                     siakad.ratarataIpk();
                 } else if (menu == 4) {
-                    siakad.ratarataIpk();
-                }
+                    siakad.cariDataViaNama();
+                } else if (menu == 5) {
+                    siakad.cariDataViaNIM();
+                } else if (menu == 6) {
+                    siakad.editNama();
+                } else if (menu == 7) {
+                    siakad.editNIM();
+                } 
             }
         }
 
@@ -39,8 +46,12 @@ import java.util.Scanner;
             System.out.println("1. Lihat Data");
             System.out.println("2. Tambah Data");
             System.out.println("3. Rata-rata IPK");
-            System.out.println("4. Edit Data");
-            System.out.println("5. Keluar");
+            System.out.println("4. Cari Nama");
+            System.out.println("5. Cari NIM");
+            System.out.println("6. Edit Nama");
+            System.out.println("7. Edit NIM");
+            System.out.println("8. Hapus Data NIM");
+            System.out.println("9. Keluar");
             System.out.print("Silahkan pilih menu = ");
             Scanner scanMenu = new Scanner (System.in);
             int menu = scanMenu.nextInt();
@@ -63,36 +74,125 @@ import java.util.Scanner;
         }
 
         private void tambahData() {
-            Scanner tambah = new Scanner(System.in);
+            Scanner scan = new Scanner(System.in);
+            Scanner scanTwo = new Scanner (System.in);
+
             System.out.println();
 
             System.out.print("Masukkan 11 digit NIM                  : ");
-            String studID = tambah.nextLine();
+            String studID = scan.nextLine();
 
             System.out.print("Masukkan nama lengkap Mahasiswa        : ");
-            String fullName = tambah.nextLine();
+            String fullName = scan.nextLine();
 
             System.out.print("Masukkan semester Mahasiswa            : ");
-            int studSems = tambah.nextInt();
+            int studSems = scan.nextInt();
 
-            System.out.print("Masukkan IPK Mahasiswa (contoh = 3.76) : ");
-            double gpa  = tambah.nextDouble();
+            System.out.print("Masukkan IPK Mahasiswa                 : ");
+            double gpa  = scan.nextDouble();
 
-            System.out.print("Masukkan berat badan Mahasiswa         : ");
-            double weight = tambah.nextDouble();
+            System.out.print("Masukkan nama Ayah atau Wali Mahasiswa : ");
+            String fathersName = scanTwo.nextLine();
 
-            Mahasiswa inputMahasiswa = new Mahasiswa (studID, fullName, studSems, gpa);
-            inputMahasiswa.setweight(weight);
-            mahasiswa[jumlahData] = inputMahasiswa;
-
+            Mahasiswa inputMahasiswa = new Mahasiswa (studID, fullName, studSems, gpa); // set
+            inputMahasiswa.setfathersName(fathersName); // set
+            mahasiswa[jumlahData] = inputMahasiswa; 
             jumlahData++; // ngasih tau jumlah data naik terus
             lihatData();
         }
 
-        public void cariData() {
+        public void cariDataViaNama() {
             Scanner scan = new Scanner(System.in);
-            System.out.println("Masukkan NIM yang ingin dicari =  ");
-            String nim = scan.nextLine();
+            System.out.print("Masukkan nama Mahasiswa yang ingin dicari :");
+            String fullName = scan.nextLine();
+            int index = getIndexbyNama(fullName);
+
+            if (index == -1) {
+                System.out.println("Nama yang anda cari belum tercantum di data.");
+            } else {
+                mahasiswa[index].getDetail();
+            }
+        }
+
+        public int getIndexbyNama(String fullName) {
+            for (int i = 0; i < jumlahData; i++) {
+                if (mahasiswa[i].getfullName().equals(fullName)) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public void cariDataViaNIM() { // buat baru
+            Scanner scan = new Scanner(System.in);
+            System.out.print("Masukkan NIM yang ingin dicari :");
+            String studID = scan.nextLine();
+            int index = getIndexByNIM(studID);
+
+            if (index == -1) {
+                System.out.println("NIM yang anda cari belum tercantum di data.");
+            } else {
+                mahasiswa[index].getDetail();
+            }
+        }
+
+        public int getIndexByNIM (String studID) { // buat int baru buat cek apakah sama yang dicari apa tidak
+            for (int i = 0; i < jumlahData; i++) {
+                if (mahasiswa[i].getstudID().equals(studID)) {
+                    return i;
+                }
+            }
+        return -1;
+        }
+
+        public void editNama() {
+            Scanner scan = new Scanner (System.in);
+            System.out.print("Masukkan nama Mahasiswa yang ingin diedit : ");
+            String fullName = scan.nextLine();
+            int index = getIndexbyNama(fullName);
+
+            if (index == -1) {
+                System.out.println("Nama yang Anda masukkan tidak tersedia.");
+            } else {
+                System.out.print("Nama baru Mahasiswa : ");
+                String nama = scan.nextLine();
+                mahasiswa[index].setfullName(nama);
+                mahasiswa[index].getDetail();
+            }
+        }
+
+        public void editNIM() {
+            Scanner scan = new Scanner (System.in);
+            System.out.print("Masukkan NIM yang ingin diedit : ");
+            String studID = scan.nextLine();
+            int index = getIndexbyNama(studID);
+
+            if (index == -1) {
+                System.out.println("NIM yang Anda masukkan tidak tersedia.");
+            } else {
+                System.out.print("NIM baru : ");
+                String nim = scan.nextLine();
+                mahasiswa[index].setstudID(studID);
+                mahasiswa[index].getDetail();
+            }
+        }
+
+
+        public void hapusData() {
+            Scanner scan = new Scanner (System.in);
+            System.out.print("Masukkan NIM yang ingin dihapus : ");
+            String studID = scan.nextLine();
+            int index = getIndexByNIM(studID);
+
+            if (index == -1) {
+                System.out.println("Data yang ingin anda hapus tidak tersedia.");
+            } else {
+                for (int i = 0; i < jumlahData; i++) {
+                    mahasiswa[i] = mahasiswa[i+1];
+                }
+            jumlahData--;
+            lihatData();
+            }
         }
         
         public void ratarataIpk() {
