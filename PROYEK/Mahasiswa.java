@@ -39,7 +39,9 @@ public class Mahasiswa extends Family{
         return this.gpa;
     }
 
+
     public void getDetail() {
-        System.out.println(this.studID + " " + this.fullName + " " + this.gpa + " " + this.studSems + " " + this.fathersName);    
+        System.out.printf("%10s %20s %5s %5s %5s", this.studID, this.fullName, this.studSems, this.gpa, this.fathersName);
+        System.out.println();        
     }
 }

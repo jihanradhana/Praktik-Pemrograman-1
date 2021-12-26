@@ -65,6 +65,9 @@ import java.util.Scanner;
             } else {
                 System.out.println();
                 System.out.println("Data mahasiswa : ");
+                System.out.printf("%10s %20s %5s %5s %5s", "NIM", "NAMA LENGKAP", "SEMESTER", "IPK", "NAMA AYAH ATAU WALI");
+                System.out.println();
+                System.out.println("-----------------------------------------------------------------------------");
                 for (int i = 0; i < jumlahData; i++) {
                    mahasiswa[i].getDetail();
                 }
@@ -78,19 +81,24 @@ import java.util.Scanner;
             Scanner scanTwo = new Scanner (System.in);
 
             System.out.println();
-
+            
             System.out.print("Masukkan 11 digit NIM                  : ");
             String studID = scan.nextLine();
-
+    
             System.out.print("Masukkan nama lengkap Mahasiswa        : ");
             String fullName = scan.nextLine();
 
             System.out.print("Masukkan semester Mahasiswa            : ");
             int studSems = scan.nextInt();
 
+            double gpa = 0 ;
+            try {
             System.out.print("Masukkan IPK Mahasiswa                 : ");
-            double gpa  = scan.nextDouble();
-
+            gpa = scan.nextDouble();
+            } catch (Exception e) {
+                System.out.println("Anda harus memasukan IPK dalam bentuk bilangan desimal.");
+            }
+            
             System.out.print("Masukkan nama Ayah atau Wali Mahasiswa : ");
             String fathersName = scanTwo.nextLine();
 
@@ -205,4 +213,3 @@ import java.util.Scanner;
             System.out.println("Rata-rata IPK dari Mahasiswa tersebut adalah : " + ratarata);
         }
     }
-
