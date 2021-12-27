@@ -35,6 +35,8 @@ import java.util.Scanner;
                     siakad.editNama();
                 } else if (menu == 7) {
                     siakad.editNIM();
+                } else if (menu == 7) {
+                    siakad.hapusData();
                 } 
             }
         }
@@ -67,7 +69,7 @@ import java.util.Scanner;
                 System.out.println("Data mahasiswa : ");
                 System.out.printf("%10s %20s %5s %5s %5s", "NIM", "NAMA LENGKAP", "SEMESTER", "IPK", "NAMA AYAH ATAU WALI");
                 System.out.println();
-                System.out.println("-----------------------------------------------------------------------------");
+                System.out.println("--------------------------------------------------------------------------------------------------");
                 for (int i = 0; i < jumlahData; i++) {
                    mahasiswa[i].getDetail();
                 }
@@ -81,7 +83,7 @@ import java.util.Scanner;
             Scanner scanTwo = new Scanner (System.in);
 
             System.out.println();
-            
+
             System.out.print("Masukkan 11 digit NIM                  : ");
             String studID = scan.nextLine();
     
@@ -101,6 +103,7 @@ import java.util.Scanner;
             
             System.out.print("Masukkan nama Ayah atau Wali Mahasiswa : ");
             String fathersName = scanTwo.nextLine();
+
 
             Mahasiswa inputMahasiswa = new Mahasiswa (studID, fullName, studSems, gpa); // set
             inputMahasiswa.setfathersName(fathersName); // set
@@ -122,7 +125,7 @@ import java.util.Scanner;
             }
         }
 
-        public int getIndexbyNama(String fullName) {
+        public int getIndexbyNama(String fullName) {  // harus ada kalo mau nyari
             for (int i = 0; i < jumlahData; i++) {
                 if (mahasiswa[i].getfullName().equals(fullName)) {
                     return i;
@@ -140,6 +143,9 @@ import java.util.Scanner;
             if (index == -1) {
                 System.out.println("NIM yang anda cari belum tercantum di data.");
             } else {
+                System.out.printf("%10s %20s %5s %5s %5s", "NIM", "NAMA LENGKAP", "SEMESTER", "IPK", "NAMA AYAH ATAU WALI");
+                System.out.println();
+                System.out.println("--------------------------------------------------------------------------------------------------");
                 mahasiswa[index].getDetail();
             }
         }
@@ -165,26 +171,31 @@ import java.util.Scanner;
                 System.out.print("Nama baru Mahasiswa : ");
                 String nama = scan.nextLine();
                 mahasiswa[index].setfullName(nama);
+                System.out.printf("%10s %20s %5s %5s %5s", "NIM", "NAMA LENGKAP", "SEMESTER", "IPK", "NAMA AYAH ATAU WALI");
+                System.out.println();
+                System.out.println("--------------------------------------------------------------------------------------------------");
                 mahasiswa[index].getDetail();
             }
         }
 
-        public void editNIM() {
+        public void editNIM() { // buat index dulu ya
             Scanner scan = new Scanner (System.in);
             System.out.print("Masukkan NIM yang ingin diedit : ");
             String studID = scan.nextLine();
-            int index = getIndexbyNama(studID);
+            int index = getIndexByNIM(studID);
 
             if (index == -1) {
                 System.out.println("NIM yang Anda masukkan tidak tersedia.");
             } else {
                 System.out.print("NIM baru : ");
                 String nim = scan.nextLine();
-                mahasiswa[index].setstudID(studID);
+                mahasiswa[index].setstudID(nim);
+                System.out.printf("%10s %20s %5s %5s %5s", "NIM", "NAMA LENGKAP", "SEMESTER", "IPK", "NAMA AYAH ATAU WALI");
+                System.out.println();
+                System.out.println("--------------------------------------------------------------------------------------------------");
                 mahasiswa[index].getDetail();
             }
         }
-
 
         public void hapusData() {
             Scanner scan = new Scanner (System.in);
