@@ -35,7 +35,7 @@ import java.util.Scanner;
                     siakad.editNama();
                 } else if (menu == 7) {
                     siakad.editNIM();
-                } else if (menu == 7) {
+                } else if (menu == 8) {
                     siakad.hapusData();
                 } 
             }
@@ -104,15 +104,16 @@ import java.util.Scanner;
             System.out.print("Masukkan nama Ayah atau Wali Mahasiswa : ");
             String fathersName = scanTwo.nextLine();
 
-
-            Mahasiswa inputMahasiswa = new Mahasiswa (studID, fullName, studSems, gpa); // set
+            Mahasiswa inputMahasiswa = new Mahasiswa (studID, fullName, studSems, gpa, gpa); // set
             inputMahasiswa.setfathersName(fathersName); // set
             mahasiswa[jumlahData] = inputMahasiswa; 
             jumlahData++; // ngasih tau jumlah data naik terus
             lihatData();
         }
 
-        public void cariDataViaNama() {
+        // kalau mau cari, edit, atau hapus, harus buat get indexnya dulu.
+
+        public void cariDataViaNama() { // buat index dlu
             Scanner scan = new Scanner(System.in);
             System.out.print("Masukkan nama Mahasiswa yang ingin dicari :");
             String fullName = scan.nextLine();
@@ -121,6 +122,9 @@ import java.util.Scanner;
             if (index == -1) {
                 System.out.println("Nama yang anda cari belum tercantum di data.");
             } else {
+                System.out.printf("%10s %20s %5s %5s %5s", "NIM", "NAMA LENGKAP", "SEMESTER", "IPK", "NAMA AYAH ATAU WALI");
+                System.out.println();
+                System.out.println("--------------------------------------------------------------------------------------------------");
                 mahasiswa[index].getDetail();
             }
         }
@@ -153,6 +157,15 @@ import java.util.Scanner;
         public int getIndexByNIM (String studID) { // buat int baru buat cek apakah sama yang dicari apa tidak
             for (int i = 0; i < jumlahData; i++) {
                 if (mahasiswa[i].getstudID().equals(studID)) {
+                    return i;
+                }
+            }
+        return -1;
+        }
+
+        public int getIndexByGPA (double gpa) { // buat int baru buat cek apakah sama yang dicari apa tidak
+            for (int i = 0; i < jumlahData; i++) {
+                if (mahasiswa[i].getgpa()==(gpa)) {
                     return i;
                 }
             }
@@ -197,7 +210,7 @@ import java.util.Scanner;
             }
         }
 
-        public void hapusData() {
+        public void hapusData() { //buat index jugak
             Scanner scan = new Scanner (System.in);
             System.out.print("Masukkan NIM yang ingin dihapus : ");
             String studID = scan.nextLine();

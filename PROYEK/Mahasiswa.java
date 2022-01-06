@@ -3,12 +3,15 @@ public class Mahasiswa extends Family{
     private String fullName;
     private double gpa;
     private int studSems;
+    public int getgpa;
+    private double ngasal;
 
-    public Mahasiswa (String studID, String fullName, int studSems, double gpa) {
+    public Mahasiswa (String studID, String fullName, int studSems, double gpa, double ngasal) {
         this.studID = studID;
         this.fullName = fullName;
         this.studSems = studSems;
         this.gpa = gpa;
+        this.ngasal = ngasal;
     }
 
     public void setstudID(String studID) {
@@ -38,7 +41,6 @@ public class Mahasiswa extends Family{
     public double getgpa() {
         return this.gpa;
     }
-
 
     public void getDetail() {
         System.out.printf("%10s %20s %5s %5s %5s", this.studID, this.fullName, this.studSems, this.gpa, this.fathersName);
